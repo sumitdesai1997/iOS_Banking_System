@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KZw-4L-ye5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -51,7 +51,7 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="htC-G3-AMR"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxv-mM-ABs">
                                                 <rect key="frame" x="30" y="278" width="78" height="25"/>
@@ -66,6 +66,9 @@
                                                 <state key="normal" title="Sign in">
                                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="clickSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lOT-WD-r3v"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utk-6j-2cK">
                                                 <rect key="frame" x="145.5" y="433" width="123" height="30"/>
@@ -137,6 +140,10 @@
                             <constraint firstItem="Iph-7a-2C6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jE4-7M-USD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTF" destination="cfq-mm-l2k" id="Gx1-Pi-PtH"/>
+                        <outlet property="passwordTF" destination="oMT-V6-HM2" id="Kgr-3F-Ecg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
