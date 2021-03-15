@@ -25,6 +25,11 @@ extension String{
         return applyReg(regexStr: passReg)
     }
     
+    func validName() -> Bool{
+        let nameReg = "^(([^ ]?)(^[a-zA-Z].*[a-zA-Z]$)([^ ]?))$"
+        return applyReg(regexStr: nameReg)
+    }
+    
     //https://stackoverflow.com/a/39284766/8201581
     
     func applyReg(regexStr: String) -> Bool{
