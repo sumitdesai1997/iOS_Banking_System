@@ -33,15 +33,16 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     @IBOutlet weak var fromTF: UITextField!
     @IBOutlet weak var toTF: UITextField!
-    @IBOutlet weak var dateTF: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var fromPickerView = UIPickerView()
     var toPickerView = UIPickerView()
-    var datePicker = UIDatePicker()
     
     var cityList = ["Surat", "Nadiad", "Khambhat", "Ahmedabad", "Toronto"]
     
     var userList = [User]()
+    var alertTitle = "Alert"
+    var alertMessage = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         fromPickerView.dataSource = self
@@ -50,36 +51,42 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         toPickerView.dataSource = self
         toPickerView.delegate = self
         
-        
         fromTF.inputView = fromPickerView
         toTF.inputView = toPickerView
         
-        customDatePicker()
-        // Do any additional setup after loading the view.
-    }
-    
-    func customDatePicker(){
-        
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(clickDone))
-        
-        toolbar.setItems([doneButton], animated: true)
-        
-        dateTF.inputAccessoryView = toolbar
-        dateTF.inputView = datePicker
-        
+        datePicker.preferredDatePickerStyle = .compact
         datePicker.datePickerMode = .date
     }
     
-    @objc func clickDone(){
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        
-        dateTF.text = formatter.string(from: datePicker.date)
-        self.view.endEditing(true)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let srvc = segue.destination as! ShowingResultsViewController
+        srvc.from = fromTF.text!
+        srvc.to = toTF.text!
     }
-
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if let from = fromTF.text, let to = toTF.text {
+            if from == "" || to == "" {
+                alertMessage = "Please enter value for all fields."
+                return false
+            } else {
+                if !from.validName() || !to.validName(){
+                    alertMessage = "Please enter valid city name"
+                    return false
+                }
+                return true
+            }
+        }
+        return false
+    }
+    
+    @IBAction func clickSearchBus(_ sender: Any) {
+        if shouldPerformSegue(withIdentifier: "SeachBusToShowingResults", sender: self){
+            performSegue(withIdentifier: "SeachBusToShowingResults", sender: self)
+        } else {
+            openAlert(title: alertTitle, message: alertMessage, alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
+        }
+        
+    }
+    
 }

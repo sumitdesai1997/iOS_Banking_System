@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		035A6BF026009518000978CA /* ShowingResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A6BEF26009518000978CA /* ShowingResultsViewController.swift */; };
+		035A6BF526009541000978CA /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A6BF426009541000978CA /* Bus.swift */; };
+		035A6BFA2600A4CF000978CA /* BusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A6BF92600A4CF000978CA /* BusTableViewCell.swift */; };
 		035B0B9C25FF513A00E45C6B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B0B9B25FF513A00E45C6B /* String.swift */; };
 		035B0BA425FF528900E45C6B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B0BA325FF528900E45C6B /* Alert.swift */; };
 		03970AD525FE258600FAB644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970AD425FE258600FAB644 /* AppDelegate.swift */; };
@@ -40,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		035A6BEF26009518000978CA /* ShowingResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingResultsViewController.swift; sourceTree = "<group>"; };
+		035A6BF426009541000978CA /* Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
+		035A6BF92600A4CF000978CA /* BusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTableViewCell.swift; sourceTree = "<group>"; };
 		035B0B9B25FF513A00E45C6B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		035B0BA325FF528900E45C6B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		03970AD125FE258600FAB644 /* iosBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +129,9 @@
 				03970AD625FE258600FAB644 /* SceneDelegate.swift */,
 				03970AD825FE258600FAB644 /* ViewController.swift */,
 				03970ADA25FE258600FAB644 /* Main.storyboard */,
+				035A6BEF26009518000978CA /* ShowingResultsViewController.swift */,
+				035A6BF92600A4CF000978CA /* BusTableViewCell.swift */,
+				035A6BF426009541000978CA /* Bus.swift */,
 				03D8A9FE25FFF91D00FE647A /* SearchBusViewController.swift */,
 				03D8A9F125FFDF0400FE647A /* User.swift */,
 				03D8A9EC25FFD6DF00FE647A /* SignUpViewController.swift */,
@@ -283,11 +292,14 @@
 			files = (
 				03D8A9ED25FFD6DF00FE647A /* SignUpViewController.swift in Sources */,
 				03970AD925FE258600FAB644 /* ViewController.swift in Sources */,
+				035A6BF026009518000978CA /* ShowingResultsViewController.swift in Sources */,
 				03970AD525FE258600FAB644 /* AppDelegate.swift in Sources */,
+				035A6BF526009541000978CA /* Bus.swift in Sources */,
 				035B0B9C25FF513A00E45C6B /* String.swift in Sources */,
 				035B0BA425FF528900E45C6B /* Alert.swift in Sources */,
 				03970AD725FE258600FAB644 /* SceneDelegate.swift in Sources */,
 				03D8A9F225FFDF0400FE647A /* User.swift in Sources */,
+				035A6BFA2600A4CF000978CA /* BusTableViewCell.swift in Sources */,
 				03D8A9FF25FFF91D00FE647A /* SearchBusViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
