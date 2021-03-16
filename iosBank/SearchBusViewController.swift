@@ -86,7 +86,6 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         } else {
             openAlert(title: alertTitle, message: alertMessage, alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
         }
-        
     }
     
 }
