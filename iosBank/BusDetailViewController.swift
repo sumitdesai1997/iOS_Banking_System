@@ -27,4 +27,9 @@ class BusDetailViewController: UIViewController {
         number.text = String(1)
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func changedNumber(_ sender: UIStepper) {
+        number.text = String(Int(sender.value))
+    }
+    
 }
