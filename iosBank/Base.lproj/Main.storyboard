@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jFd-4n-TWx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -361,13 +361,13 @@
         <!--Search Bus View Controller-->
         <scene sceneID="M5H-WP-rpE">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="0Ir-p1-uvU" customClass="SearchBusViewController" customModule="iosBank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0Ir-p1-uvU" customClass="SearchBusViewController" customModule="iosBank" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l9Y-7f-UAB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpp-5v-uL3">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZt-iW-60B">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="824"/>
@@ -505,6 +505,7 @@
                         <outlet property="datePicker" destination="DYu-JQ-nlv" id="Nzb-Ap-EQe"/>
                         <outlet property="fromTF" destination="mFL-9L-BcA" id="WDm-bD-bic"/>
                         <outlet property="toTF" destination="NHI-05-BfO" id="Tyl-Dm-YC1"/>
+                        <outlet property="userName" destination="fhx-A1-hSg" id="Bah-fo-NkT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7N-uF-ZfK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -514,13 +515,13 @@
         <!--Showing Results View Controller-->
         <scene sceneID="acB-y4-9Pe">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="jFd-4n-TWx" customClass="ShowingResultsViewController" customModule="iosBank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jFd-4n-TWx" customClass="ShowingResultsViewController" customModule="iosBank" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cNq-63-cZ6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xy4-cf-wr1">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OnU-mk-Uc1">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="425"/>

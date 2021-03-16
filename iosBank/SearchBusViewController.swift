@@ -31,6 +31,7 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
        
     }
     
+    @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var fromTF: UITextField!
     @IBOutlet weak var toTF: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -56,6 +57,8 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         
         datePicker.preferredDatePickerStyle = .compact
         datePicker.datePickerMode = .date
+        
+        userName.text = userList[0].name
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
