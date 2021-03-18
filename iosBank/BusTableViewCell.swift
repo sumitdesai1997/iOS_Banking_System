@@ -10,11 +10,9 @@ import UIKit
 class BusTableViewCell: UITableViewCell {
 
     @IBOutlet weak var busName: UILabel!
-    @IBOutlet weak var isExpress: UILabel!
-    @IBOutlet weak var isSleeper: UILabel!
-    @IBOutlet weak var hasAC: UILabel!
-    @IBOutlet weak var hasWifi: UILabel!
-    @IBOutlet weak var reviews: UILabel!
+    @IBOutlet weak var busPrice: UILabel!
+    @IBOutlet weak var busRating: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,10 +28,7 @@ class BusTableViewCell: UITableViewCell {
     
     func setBusCell (bus: Bus){
         busName.text = bus.busName
-        isExpress.text = bus.isExpress ? "Express" : "Non Express"
-        isSleeper.text = bus.isSleeper ? "Sleeper" : "Seater"
-        hasAC.text = bus.hasAC ? "AC" : "Non AC"
-        hasWifi.text = bus.hasWifi ? "Wifi" : "No Wifi"
+        busRating.text = "\(bus.review) stars"
     }
     
     override open var frame: CGRect {

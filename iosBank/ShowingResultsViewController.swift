@@ -17,6 +17,7 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
         let cell = busTable.dequeueReusableCell(withIdentifier: "busCell") as! BusTableViewCell
         let bus = busList[indexPath.row]
         cell.setBusCell(bus: bus)
+        cell.busPrice.text = "$\(price)"
         
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 5
@@ -45,6 +46,7 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
     var name = ""
     var images = [String]()
     var information = ""
+    var price = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +57,7 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
         // Do any additional setup after loading the view.
         
         fillData()
-        tableHeight.constant = CGFloat(Double(busList.count) * 110.0)
+        tableHeight.constant = CGFloat(Double(busList.count) * 114.0)
     }
     
     func fillData(){
@@ -71,6 +73,9 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
         bdvc.name = name
         bdvc.images = images
         bdvc.information = information
+        bdvc.from = from
+        bdvc.to = to
+        bdvc.price = price
     }
 
 }

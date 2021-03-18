@@ -39,7 +39,38 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
     var fromPickerView = UIPickerView()
     var toPickerView = UIPickerView()
     
-    var cityList = ["Surat", "Nadiad", "Khambhat", "Ahmedabad", "Toronto"]
+    var cityList = ["Toronto", "Mississauga", "Brampton", "Oshawa", "Hamilton", "Kitchner"]
+    var priceList = [
+    "TM1" : "9",
+    "TB1" : "14",
+    "TO1" : "19",
+    "TH1" : "22",
+    "TK1" : "35",
+    "MT1" : "9",
+    "MB1" : "7",
+    "MO1" : "26",
+    "MH1" : "15",
+    "MK1" : "29",
+    "BT1" : "14",
+    "BM1" : "7",
+    "BO1" : "29",
+    "BH1" : "22",
+    "BK1" : "28",
+    "OT1" : "19",
+    "OM1" : "26",
+    "OB1" : "29",
+    "OH1" : "41",
+    "OK1" : "50",
+    "HT1" : "22",
+    "HM1" : "15",
+    "HB1" : "22",
+    "HO1" : "41",
+    "HK1" : "21",
+    "KT1" : "35",
+    "KM1" : "29",
+    "KB1" : "28",
+    "KO1" : "50",
+    "KH1" : "21"]
     
     var userList = [User]()
     var alertTitle = "Alert"
@@ -58,13 +89,26 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         datePicker.preferredDatePickerStyle = .compact
         datePicker.datePickerMode = .date
         
-        userName.text = userList[0].name
+        userName.text = "Sumit"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let srvc = segue.destination as! ShowingResultsViewController
-        srvc.from = fromTF.text!
-        srvc.to = toTF.text!
+        let from = fromTF.text!
+        let to = toTF.text!
+        srvc.from = from
+        srvc.to = to
+        
+        for (key, value) in priceList{
+            let from0 = Array(from)[0]
+            let to0 = Array(to)[0]
+            let key0 = Array(key)[0]
+            let key1 = Array(key)[1]
+                if (from0 == key0 && to0 == key1){
+                    srvc.price = Double(value)!
+                }
+                   
+        }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -89,6 +133,6 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         } else {
             openAlert(title: alertTitle, message: alertMessage, alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
         }
+        
     }
-    
 }
