@@ -19,8 +19,8 @@ class Bus{
     var to : [String]
     var review : Double
     var multiplier : Double
-    
-    init(busName: String, isExpress: Bool, isSleeper: Bool, hasAC: Bool, hasWifi: Bool, images: [String], description: String, from: [String], to: [String], review: Double, multiplier: Double) {
+    var price : Double
+    init(busName: String, isExpress: Bool, isSleeper: Bool, hasAC: Bool, hasWifi: Bool, images: [String], description: String, from: [String], to: [String], review: Double, multiplier: Double, price: Double) {
         self.busName = busName
         self.isExpress = isExpress
         self.isSleeper = isSleeper
@@ -32,5 +32,6 @@ class Bus{
         self.to = to
         self.review = review
         self.multiplier = multiplier
+        self.price = price
     }
 }

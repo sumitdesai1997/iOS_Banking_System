@@ -28,6 +28,7 @@ class BusDetailViewController: UIViewController {
     var from = ""
     var to = ""
     var price = 0.0
+    var tempPrice = 0.0
     var extraService = 0.0
     
     override func viewDidLoad() {
@@ -38,106 +39,123 @@ class BusDetailViewController: UIViewController {
         busInformation.text = information
         number.text = String(1)
         ticketPrice.text = "$\(price)"
+        tempPrice = price
         // Do any additional setup after loading the view.
     }
     
     @IBAction func changedNumber(_ sender: UIStepper) {
         number.text = String(Int(sender.value))
-        price = price * Double(number.text!)!
+        price = tempPrice * Double(number.text!)!
+        ticketPrice.text = String(price)
+        
+        extraService = 0.0
+        food.isSelected = false
+        liveTracking.isSelected = false
+        netflix.isSelected = false
+        electricPlug.isSelected = false
+        ac.isSelected = false
+        sleeper.isSelected = false
     }
     
     @IBAction func clickFood(_ sender: Any) {
         let numberOfSeat = Int(number.text!)!
         if(food.isSelected){
             food.isSelected = false
-            extraService -= 2.0 * Double(numberOfSeat)
-            price -= extraService
-            ticketPrice.text = "$\(price)"
+            //extraService -= (2.0 * Double(numberOfSeat))
+            //price -= extraService
+            //ticketPrice.text = "$\(price)"
         } else {
             food.isSelected = true
-            extraService += 2.0 * Double(numberOfSeat)
-            price += extraService
-            ticketPrice.text = "$\(price)"
+            //extraService += (2.0 * Double(numberOfSeat))
+            //price += extraService
+            //ticketPrice.text = "$\(price)"
         }
+        getExtraService()
     }
     
     @IBAction func clickLiveTracking(_ sender: Any) {
         let numberOfSeat = Int(number.text!)!
         if(liveTracking.isSelected){
             liveTracking.isSelected = false
-            extraService -= 0.25 * Double(numberOfSeat)
-            price -= extraService
-            ticketPrice.text = "$\(price)"
+            //extraService -= (0.25 * Double(numberOfSeat))
+            //price -= extraService
+            //ticketPrice.text = "$\(price)"
         } else {
             liveTracking.isSelected = true
-            extraService += 0.25 * Double(numberOfSeat)
-            price += extraService
-            ticketPrice.text = "$\(price)"
+            //extraService += (0.25 * Double(numberOfSeat))
+            //price += extraService
+            //ticketPrice.text = "$\(price)"
         }
+        getExtraService()
     }
     
     @IBAction func clickNetflix(_ sender: Any) {
         let numberOfSeat = Int(number.text!)!
         if(netflix.isSelected){
             netflix.isSelected = false
-            extraService -= 1.0 * Double(numberOfSeat)
-            price -= extraService
-            ticketPrice.text = "$\(price)"
+            //extraService -= (1.0 * Double(numberOfSeat))
+            //price -= extraService
+            //ticketPrice.text = "$\(price)"
         } else {
             netflix.isSelected = true
-            extraService += 1.0 * Double(numberOfSeat)
-            price += extraService
-            ticketPrice.text = "$\(price)"
+            //extraService += (1.0 * Double(numberOfSeat))
+            //price += extraService
+            //ticketPrice.text = "$\(price)"
         }
+        getExtraService()
     }
     
     @IBAction func clickElectricPlug(_ sender: Any) {
         let numberOfSeat = Int(number.text!)!
         if(electricPlug.isSelected){
             electricPlug.isSelected = false
-            extraService -= 0.50 * Double(numberOfSeat)
-            price -= extraService
-            ticketPrice.text = "$\(price)"
+            //extraService -= (0.50 * Double(numberOfSeat))
+            //price -= extraService
+            //ticketPrice.text = "$\(price)"
         } else {
             electricPlug.isSelected = true
-            extraService += 0.50 * Double(numberOfSeat)
-            price += extraService
-            ticketPrice.text = "$\(price)"
+            //extraService += (0.50 * Double(numberOfSeat))
+            //price += extraService
+            //ticketPrice.text = "$\(price)"
         }
+        getExtraService()
     }
     
     @IBAction func clickAC(_ sender: Any) {
         let numberOfSeat = Int(number.text!)!
         if(ac.isSelected){
             ac.isSelected = false
-            extraService -= 1.0 * Double(numberOfSeat)
-            price -= extraService
-            ticketPrice.text = "$\(price)"
+            //extraService -= (1.0 * Double(numberOfSeat))
+            //price -= extraService
+            //ticketPrice.text = "$\(price)"
         } else {
             ac.isSelected = true
-            extraService += 1.0 * Double(numberOfSeat)
-            price += extraService
-            ticketPrice.text = "$\(price)"
+            //extraService += (1.0 * Double(numberOfSeat))
+            //price += extraService
+            //ticketPrice.text = "$\(price)"
         }
+        getExtraService()
     }
     
     @IBAction func clickSleeper(_ sender: Any) {
         let numberOfSeat = Int(number.text!)!
         if(sleeper.isSelected){
             sleeper.isSelected = false
-            extraService -= price * Double(numberOfSeat)
-            price -= extraService
-            ticketPrice.text = "$\(price)"
+            //extraService -= (price * Double(numberOfSeat))
+            //price -= extraService
+            //ticketPrice.text = "$\(price)"
         } else {
             sleeper.isSelected = true
-            extraService += price * Double(numberOfSeat)
-            price += extraService
-            ticketPrice.text = "$\(price)"
+            //extraService += (price * Double(numberOfSeat))
+            //price += extraService
+            //ticketPrice.text = "$\(price)"
         }
+        getExtraService()
     }
     
     func getExtraService(){
         extraService = 0.0
+
         let numberOfSeat = Int(number.text!)!
         
         if food.isSelected{

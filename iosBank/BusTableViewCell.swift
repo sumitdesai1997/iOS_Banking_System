@@ -28,6 +28,7 @@ class BusTableViewCell: UITableViewCell {
     
     func setBusCell (bus: Bus){
         busName.text = bus.busName
+        busPrice.text = "$\(bus.price)"
         busRating.text = "\(bus.review) stars"
     }
     

@@ -72,7 +72,9 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
     "KO1" : "50",
     "KH1" : "21"]
     
+    var busList = [Bus]()
     var userList = [User]()
+    var price = 0.0
     var alertTitle = "Alert"
     var alertMessage = ""
     override func viewDidLoad() {
@@ -90,12 +92,22 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         datePicker.datePickerMode = .date
         
         userName.text = "Sumit"
+        
+        fillData()
+    }
+    
+    func fillData(){
+        busList.append(Bus(busName: "Sumit Dhanadhan Travells", isExpress: true, isSleeper: true, hasAC: true, hasWifi: true, images: ["sumit1","sumit2","sumit3"], description: "One of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in India.", from: [], to: [], review: 10.0, multiplier: 1.25, price: 0.0))
+        busList.append(Bus(busName: "Mihin Vana Wow Wow Travells", isExpress: true, isSleeper: false, hasAC: false, hasWifi: false, images: ["mihin1","mihin2","mihin3"], description: "One of the top buses in Gujarat", from: [], to: [], review: 9.0, multiplier: 00.90, price: 0.0))
+        busList.append(Bus(busName: "Krishna Canada Travells", isExpress: false, isSleeper: false, hasAC: false, hasWifi: true, images: ["krishna1","krishna2","krishna3"], description: "One of the top buses in Canada", from: [], to: [], review: 9.2, multiplier: 1.10, price: 0.0))
+        busList.append(Bus(busName: "Tulsi Express Travells", isExpress: true, isSleeper: true, hasAC: true, hasWifi: false, images: ["tulsi1","tulsi2","tulsi3"], description: "One of the top buses in Ahmedabad", from: [], to: [], review: 8.5, multiplier: 1.0, price: 0.0))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let srvc = segue.destination as! ShowingResultsViewController
         let from = fromTF.text!
         let to = toTF.text!
+        
         srvc.from = from
         srvc.to = to
         
@@ -105,10 +117,15 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
             let key0 = Array(key)[0]
             let key1 = Array(key)[1]
                 if (from0 == key0 && to0 == key1){
-                    srvc.price = Double(value)!
+                    price = Double(value)!
                 }
-                   
         }
+       
+        for bus in busList{
+            bus.price = price * bus.multiplier
+            bus.price = Double(String(format: "%.2f", bus.price))!
+        }
+        srvc.busList = busList
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
