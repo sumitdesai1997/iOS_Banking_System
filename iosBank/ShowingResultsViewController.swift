@@ -17,7 +17,8 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
         let cell = busTable.dequeueReusableCell(withIdentifier: "busCell") as! BusTableViewCell
         let bus = busList[indexPath.row]
         cell.setBusCell(bus: bus)
-        cell.busPrice.text = "$\(price)"
+        let busPrice = Double(price) * busList[indexPath.row].multiplier
+        cell.busPrice.text = "$\(String(format: "%.2f", busPrice))"
         
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 5
@@ -61,10 +62,10 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     func fillData(){
-        busList.append(Bus(busName: "Sumit Dhanadhan Travells", isExpress: true, isSleeper: true, hasAC: true, hasWifi: true, images: ["sumit1","sumit2","sumit3"], description: "One of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in India.", from: [], to: [], review: 10.0))
-        busList.append(Bus(busName: "Mihin Vana Wow Wow Travells", isExpress: true, isSleeper: false, hasAC: false, hasWifi: false, images: ["mihin1","mihin2","mihin3"], description: "One of the top buses in Gujarat", from: [], to: [], review: 9.0))
-        busList.append(Bus(busName: "Krishna Canada Travells", isExpress: false, isSleeper: false, hasAC: false, hasWifi: true, images: ["krishna1","krishna2","krishna3"], description: "One of the top buses in Canada", from: [], to: [], review: 9.2))
-        busList.append(Bus(busName: "Tulsi Express Travells", isExpress: true, isSleeper: true, hasAC: true, hasWifi: false, images: ["tulsi1","tulsi2","tulsi3"], description: "One of the top buses in Ahmedabad", from: [], to: [], review: 8.5))
+        busList.append(Bus(busName: "Sumit Dhanadhan Travells", isExpress: true, isSleeper: true, hasAC: true, hasWifi: true, images: ["sumit1","sumit2","sumit3"], description: "One of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in India.", from: [], to: [], review: 10.0, multiplier: 1.25))
+        busList.append(Bus(busName: "Mihin Vana Wow Wow Travells", isExpress: true, isSleeper: false, hasAC: false, hasWifi: false, images: ["mihin1","mihin2","mihin3"], description: "One of the top buses in Gujarat", from: [], to: [], review: 9.0, multiplier: 00.90))
+        busList.append(Bus(busName: "Krishna Canada Travells", isExpress: false, isSleeper: false, hasAC: false, hasWifi: true, images: ["krishna1","krishna2","krishna3"], description: "One of the top buses in Canada", from: [], to: [], review: 9.2, multiplier: 1.10))
+        busList.append(Bus(busName: "Tulsi Express Travells", isExpress: true, isSleeper: true, hasAC: true, hasWifi: false, images: ["tulsi1","tulsi2","tulsi3"], description: "One of the top buses in Ahmedabad", from: [], to: [], review: 8.5, multiplier: 1.0))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
