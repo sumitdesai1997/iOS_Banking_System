@@ -30,6 +30,7 @@ class BusDetailViewController: UIViewController {
     var price = 0.0
     var tempPrice = 0.0
     var extraService = 0.0
+    var numberSeatPrice = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +41,15 @@ class BusDetailViewController: UIViewController {
         number.text = String(1)
         ticketPrice.text = "$\(price)"
         tempPrice = price
+        numberSeatPrice = price
         // Do any additional setup after loading the view.
     }
     
     @IBAction func changedNumber(_ sender: UIStepper) {
         number.text = String(Int(sender.value))
         price = tempPrice * Double(number.text!)!
-        ticketPrice.text = String(price)
+        numberSeatPrice = price
+        ticketPrice.text = "$\(price)"
         
         extraService = 0.0
         food.isSelected = false
@@ -58,7 +61,6 @@ class BusDetailViewController: UIViewController {
     }
     
     @IBAction func clickFood(_ sender: Any) {
-        let numberOfSeat = Int(number.text!)!
         if(food.isSelected){
             food.isSelected = false
             //extraService -= (2.0 * Double(numberOfSeat))
@@ -74,7 +76,6 @@ class BusDetailViewController: UIViewController {
     }
     
     @IBAction func clickLiveTracking(_ sender: Any) {
-        let numberOfSeat = Int(number.text!)!
         if(liveTracking.isSelected){
             liveTracking.isSelected = false
             //extraService -= (0.25 * Double(numberOfSeat))
@@ -90,7 +91,6 @@ class BusDetailViewController: UIViewController {
     }
     
     @IBAction func clickNetflix(_ sender: Any) {
-        let numberOfSeat = Int(number.text!)!
         if(netflix.isSelected){
             netflix.isSelected = false
             //extraService -= (1.0 * Double(numberOfSeat))
@@ -106,7 +106,6 @@ class BusDetailViewController: UIViewController {
     }
     
     @IBAction func clickElectricPlug(_ sender: Any) {
-        let numberOfSeat = Int(number.text!)!
         if(electricPlug.isSelected){
             electricPlug.isSelected = false
             //extraService -= (0.50 * Double(numberOfSeat))
@@ -122,7 +121,6 @@ class BusDetailViewController: UIViewController {
     }
     
     @IBAction func clickAC(_ sender: Any) {
-        let numberOfSeat = Int(number.text!)!
         if(ac.isSelected){
             ac.isSelected = false
             //extraService -= (1.0 * Double(numberOfSeat))
@@ -138,7 +136,6 @@ class BusDetailViewController: UIViewController {
     }
     
     @IBAction func clickSleeper(_ sender: Any) {
-        let numberOfSeat = Int(number.text!)!
         if(sleeper.isSelected){
             sleeper.isSelected = false
             //extraService -= (price * Double(numberOfSeat))
@@ -155,7 +152,8 @@ class BusDetailViewController: UIViewController {
     
     func getExtraService(){
         extraService = 0.0
-
+        price = numberSeatPrice
+        
         let numberOfSeat = Int(number.text!)!
         
         if food.isSelected{

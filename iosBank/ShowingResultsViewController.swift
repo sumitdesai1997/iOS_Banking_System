@@ -38,6 +38,7 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
     
     @IBOutlet weak var busTable: UITableView!
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
+    @IBOutlet weak var sortingSegment: UISegmentedControl!
     
     var busList = [Bus]()
     var from = ""
@@ -68,5 +69,18 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
         bdvc.to = to
         bdvc.price = price
     }
-
+    
+    @IBAction func clickSegment(_ sender: Any) {
+        let i = sortingSegment.selectedSegmentIndex
+        
+        if i == 0 {
+            busList.sort(by: {$0.price < $1.price})
+            busTable.reloadData()
+        }
+        if i == 1 {
+            busList.sort(by: {$0.price > $1.price})
+            busTable.reloadData()
+        }
+    }
+    
 }
