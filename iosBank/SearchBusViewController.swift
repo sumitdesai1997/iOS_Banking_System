@@ -22,9 +22,17 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == fromPickerView{
+            if(toTF.text == cityList[row]){
+                openAlert(title: "Alert", message: "Value for the From city and To city can not be the same", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
+                return
+            }
             fromTF.text = cityList[row]
             fromTF.resignFirstResponder()
         } else {
+            if(fromTF.text == cityList[row]){
+                openAlert(title: "Alert", message: "Value for the From city and To city can not be the same", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
+                return
+            }
             toTF.text = cityList[row]
             toTF.resignFirstResponder()
         }
