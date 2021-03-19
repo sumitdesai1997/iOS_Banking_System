@@ -625,31 +625,30 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uaQ-ou-E5f">
-                                                <rect key="frame" x="10" y="381" width="394" height="32"/>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tBs-FS-Ooo">
+                                                <rect key="frame" x="10" y="379" width="394" height="31"/>
                                                 <segments>
                                                     <segment title="Price: Low to High"/>
-                                                    <segment title="Price: High to Low"/>
+                                                    <segment title="Price: Hight to Low"/>
                                                 </segments>
                                                 <connections>
-                                                    <action selector="clickSegment:" destination="jFd-4n-TWx" eventType="valueChanged" id="1aP-Dr-Pd3"/>
+                                                    <action selector="clickSegment:" destination="jFd-4n-TWx" eventType="valueChanged" id="sbX-uu-fJa"/>
                                                 </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="uaQ-ou-E5f" secondAttribute="trailing" constant="10" id="2Y6-Qc-1hc"/>
-                                            <constraint firstItem="uaQ-ou-E5f" firstAttribute="leading" secondItem="OnU-mk-Uc1" secondAttribute="leading" constant="10" id="5wH-Nc-mwg"/>
                                             <constraint firstItem="5xZ-TS-WVq" firstAttribute="top" secondItem="UJW-1N-hq0" secondAttribute="bottom" constant="30" id="AvE-5S-GZ5"/>
                                             <constraint firstItem="UJW-1N-hq0" firstAttribute="centerX" secondItem="OnU-mk-Uc1" secondAttribute="centerX" id="Awc-ej-XSQ"/>
-                                            <constraint firstItem="uaQ-ou-E5f" firstAttribute="top" secondItem="5xZ-TS-WVq" secondAttribute="bottom" constant="38" id="CWH-7g-RfL"/>
+                                            <constraint firstItem="tBs-FS-Ooo" firstAttribute="leading" secondItem="OnU-mk-Uc1" secondAttribute="leading" constant="10" id="Bre-eZ-bJg"/>
                                             <constraint firstItem="UJW-1N-hq0" firstAttribute="top" secondItem="OnU-mk-Uc1" secondAttribute="top" constant="30" id="QBY-KU-Zbz"/>
                                             <constraint firstItem="5xZ-TS-WVq" firstAttribute="leading" secondItem="OnU-mk-Uc1" secondAttribute="leading" constant="10" id="RSf-ZX-O8h"/>
                                             <constraint firstItem="5xZ-TS-WVq" firstAttribute="centerX" secondItem="OnU-mk-Uc1" secondAttribute="centerX" id="RfN-Ko-Su2"/>
-                                            <constraint firstItem="uaQ-ou-E5f" firstAttribute="centerX" secondItem="OnU-mk-Uc1" secondAttribute="centerX" id="YQu-5l-sAP"/>
+                                            <constraint firstAttribute="trailing" secondItem="tBs-FS-Ooo" secondAttribute="trailing" constant="10" id="WeQ-yG-NDC"/>
                                             <constraint firstAttribute="trailing" secondItem="5xZ-TS-WVq" secondAttribute="trailing" constant="10" id="d3z-rQ-9ix"/>
                                             <constraint firstAttribute="bottom" secondItem="5xZ-TS-WVq" secondAttribute="bottom" constant="101" id="esm-V9-G0y"/>
-                                            <constraint firstAttribute="bottom" secondItem="uaQ-ou-E5f" secondAttribute="bottom" constant="32" id="sKP-Uv-5WA"/>
+                                            <constraint firstItem="tBs-FS-Ooo" firstAttribute="top" secondItem="5xZ-TS-WVq" secondAttribute="bottom" constant="35" id="l2K-4c-kXR"/>
+                                            <constraint firstAttribute="bottom" secondItem="tBs-FS-Ooo" secondAttribute="bottom" constant="36" id="m4a-Sw-93H"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -673,7 +672,7 @@
                     </view>
                     <connections>
                         <outlet property="busTable" destination="5xZ-TS-WVq" id="XEv-uh-Hei"/>
-                        <outlet property="sortingSegment" destination="uaQ-ou-E5f" id="NOG-Jc-zhj"/>
+                        <outlet property="sortingSegment" destination="tBs-FS-Ooo" id="VZW-gZ-9FH"/>
                         <outlet property="tableHeight" destination="PvE-jh-VZs" id="xDt-eE-sRO"/>
                         <segue destination="5ME-rR-Dxv" kind="showDetail" identifier="BusListToBusDetail" id="HwM-tF-CDJ"/>
                     </connections>

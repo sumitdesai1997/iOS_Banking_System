@@ -70,6 +70,8 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
         bdvc.price = price
     }
     
+       
+    
     @IBAction func clickSegment(_ sender: Any) {
         let i = sortingSegment.selectedSegmentIndex
         
@@ -82,5 +84,4 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
             busTable.reloadData()
         }
     }
-    
 }
