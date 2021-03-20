@@ -18,13 +18,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        userList.append(User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo"))
+        userList.append(User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let sbvc = segue.destination as! SearchBusViewController
         
-        sbvc.userList = userList
+        for user in userList{
+            if user.email == emailTF.text!{
+                sbvc.user = user
+            }
+        }
     }
     
     var alertTitle = ""

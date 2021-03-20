@@ -30,6 +30,21 @@ extension String{
         return applyReg(regexStr: nameReg)
     }
     
+    func validateCCnumber() -> Bool{
+        let ccNumberReg = "[0-9]{16}"
+        return applyReg(regexStr: ccNumberReg)
+    }
+    
+    func validateCCcvv() -> Bool{
+        let ccCVVReg = "[0-9]{3}"
+        return applyReg(regexStr: ccCVVReg)
+    }
+    
+    func validateAmount() -> Bool{
+        let amountReg = "^([1-9][0-9]{0,2}|1000)$"
+        return applyReg(regexStr: amountReg)
+    }
+    
     //https://stackoverflow.com/a/39284766/8201581
     
     func applyReg(regexStr: String) -> Bool{

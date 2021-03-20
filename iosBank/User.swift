@@ -12,11 +12,21 @@ class User{
     var email: String
     var password: String
     var question: String
+    var balance: Double
     
-    init(name: String, email: String, password: String, question: String) {
+    init(){
+        self.name = ""
+        self.email = ""
+        self.password = ""
+        self.question = ""
+        self.balance = 0.0
+    }
+    
+    init(name: String, email: String, password: String, question: String, balance: Double) {
         self.name = name
         self.email = email
         self.password = password
         self.question = question
+        self.balance = balance
     }
 }

@@ -58,7 +58,7 @@ class SignUpViewController: UIViewController {
                     return false
                 }
     
-                userList.append(User(name: name, email: email, password: password, question: question))
+                userList.append(User(name: name, email: email, password: password, question: question, balance: 70.0))
                 alertTitle = "Congratulations"
                 alertMessage = "Account has been created succesfully!"
                 return true

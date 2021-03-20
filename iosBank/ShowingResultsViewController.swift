@@ -40,6 +40,7 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var sortingSegment: UISegmentedControl!
     
+    var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
     var busList = [Bus]()
     var from = ""
     var to = ""
@@ -47,6 +48,7 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
     var images = [String]()
     var information = ""
     var price = 0.0
+    var travelDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,15 +64,15 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let bdvc = segue.destination as! BusDetailViewController
         
+        bdvc.user = user
         bdvc.name = name
         bdvc.images = images
         bdvc.information = information
         bdvc.from = from
         bdvc.to = to
         bdvc.price = price
+        bdvc.travelDate = travelDate
     }
-    
-       
     
     @IBAction func clickSegment(_ sender: Any) {
         let i = sortingSegment.selectedSegmentIndex

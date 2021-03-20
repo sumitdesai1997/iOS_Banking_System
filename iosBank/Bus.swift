@@ -20,6 +20,7 @@ class Bus{
     var review : Double
     var multiplier : Double
     var price : Double
+    
     init(busName: String, isExpress: Bool, isSleeper: Bool, hasAC: Bool, hasWifi: Bool, images: [String], description: String, from: [String], to: [String], review: Double, multiplier: Double, price: Double) {
         self.busName = busName
         self.isExpress = isExpress

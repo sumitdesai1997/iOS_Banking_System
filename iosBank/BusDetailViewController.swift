@@ -22,6 +22,7 @@ class BusDetailViewController: UIViewController {
     @IBOutlet weak var ac: UIButton!
     @IBOutlet weak var sleeper: UIButton!
     
+    var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
     var name = ""
     var images = [String]()
     var information = ""
@@ -31,6 +32,7 @@ class BusDetailViewController: UIViewController {
     var tempPrice = 0.0
     var extraService = 0.0
     var numberSeatPrice = 0.0
+    var travelDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -177,6 +179,58 @@ class BusDetailViewController: UIViewController {
         
         price += extraService
         ticketPrice.text = "$\(price)"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let bcvc = segue.destination as! BookingConfirmationViewController
+        var serviceDetails = ""
+        
+        if(food.isSelected){
+            serviceDetails += "Food,"
+        }
+        if(liveTracking.isSelected){
+            serviceDetails += "Live Tracking,"
+        }
+        if(netflix.isSelected){
+            serviceDetails += "Netflix,"
+        }
+        if(electricPlug.isSelected){
+            serviceDetails += "Electric plug,"
+        }
+        if(ac.isSelected){
+            serviceDetails += "AC,"
+        }
+        if(sleeper.isSelected){
+            serviceDetails += "Sleeper"
+        }
+        
+        bcvc.userName = user.name
+        bcvc.fromCity = from
+        bcvc.toCity = to
+        bcvc.busname = name
+        bcvc.numberOfSeats = number.text!
+        bcvc.services = serviceDetails
+        bcvc.totalPayment = String(price)
+        bcvc.travelDate = travelDate
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let finalPrice = price
+        
+        if(finalPrice > user.balance){
+            print(user.balance)
+            return false
+        }
+        return true
+    }
+    
+    @IBAction func clickBookTicket(_ sender: Any) {
+        if(shouldPerformSegue(withIdentifier: "BusDetailToBookingConfirm", sender: self)){
+            performSegue(withIdentifier: "BusDetailToBookingConfirm", sender: self)
+        }
+        else {
+            openAlert(title: "Alert", message: "Your account don't have sufficent amount to book the ticket!", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
+        }
     }
     
 }

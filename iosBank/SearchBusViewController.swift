@@ -81,7 +81,7 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
     "KH1" : "21"]
     
     var busList = [Bus]()
-    var userList = [User]()
+    var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
     var price = 0.0
     var alertTitle = "Alert"
     var alertMessage = ""
@@ -112,30 +112,41 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let srvc = segue.destination as! ShowingResultsViewController
+        let srvc = segue.destination as? ShowingResultsViewController
         let from = fromTF.text!
         let to = toTF.text!
         
-        srvc.from = from
-        srvc.to = to
+        srvc?.from = from
+        srvc?.to = to
+        srvc?.travelDate = datePicker.date
+        srvc?.user = user
         
-        for (key, value) in priceList{
-            let from0 = Array(from)[0]
-            let to0 = Array(to)[0]
-            let key0 = Array(key)[0]
-            let key1 = Array(key)[1]
-                if (from0 == key0 && to0 == key1){
-                    price = Double(value)!
-                }
+        if(from != "" && to != ""){
+            for (key, value) in priceList{
+                let from0 = Array(from)[0]
+                let to0 = Array(to)[0]
+                let key0 = Array(key)[0]
+                let key1 = Array(key)[1]
+                    if (from0 == key0 && to0 == key1){
+                        price = Double(value)!
+                    }
+            }
+           
+            for bus in busList{
+                bus.price = price * bus.multiplier
+                bus.price = Double(String(format: "%.2f", bus.price))!
+            }
         }
-       
-        for bus in busList{
-            bus.price = price * bus.multiplier
-            bus.price = Double(String(format: "%.2f", bus.price))!
-        }
-        srvc.busList = busList
+        
+        srvc?.busList = busList
+        
+        let wvc = segue.destination as? WalletViewController
+        wvc?.userBalance = user.balance
     }
     
+    @IBAction func clickYourWallet(_ sender: Any) {
+        performSegue(withIdentifier: "YourWalletToWallet", sender: self)
+    }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if let from = fromTF.text, let to = toTF.text {
             if from == "" || to == "" {
