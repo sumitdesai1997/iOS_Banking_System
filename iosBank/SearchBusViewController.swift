@@ -100,14 +100,14 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         datePicker.preferredDatePickerStyle = .compact
         datePicker.datePickerMode = .date
         
-        user.balance = userBalance != 0.0 ? userBalance : 0.0
+        user.balance = userBalance
         userName.text = String(user.balance)
         
         fillData()
     }
     
     func fillData(){
-        busList.append(Bus(busName: "Sumit Dhanadhan Travells", isExpress: true, isSleeper: true, hasAC: true, hasWifi: true, images: ["sumit1","sumit2","sumit3"], description: "One of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in India.", from: [], to: [], review: 10.0, multiplier: 1.25, price: 0.0))
+        busList.append(Bus(busName: "Sumit Dhanadhan Travells", isExpress: true, isSleeper: true, hasAC: true, hasWifi: true, images: ["sumit1","sumit2","sumit3"], description: "One of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in India.", from: [], to: [], review: 10.0, multiplier: 1.25, price: 0.0))
         busList.append(Bus(busName: "Mihin Vana Wow Wow Travells", isExpress: true, isSleeper: false, hasAC: false, hasWifi: false, images: ["mihin1","mihin2","mihin3"], description: "One of the top buses in Gujarat", from: [], to: [], review: 9.0, multiplier: 00.90, price: 0.0))
         busList.append(Bus(busName: "Krishna Canada Travells", isExpress: false, isSleeper: false, hasAC: false, hasWifi: true, images: ["krishna1","krishna2","krishna3"], description: "One of the top buses in Canada", from: [], to: [], review: 9.2, multiplier: 1.10, price: 0.0))
         busList.append(Bus(busName: "Tulsi Express Travells", isExpress: true, isSleeper: true, hasAC: true, hasWifi: false, images: ["tulsi1","tulsi2","tulsi3"], description: "One of the top buses in Ahmedabad", from: [], to: [], review: 8.5, multiplier: 1.0, price: 0.0))
@@ -122,6 +122,7 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         srvc?.to = to
         srvc?.travelDate = datePicker.date
         srvc?.user = user
+        srvc?.userBalance = userBalance
         
         if(from != "" && to != ""){
             for (key, value) in priceList{

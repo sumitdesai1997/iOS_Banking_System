@@ -41,6 +41,7 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
     @IBOutlet weak var sortingSegment: UISegmentedControl!
     
     var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
+    var userBalance = 0.0
     var busList = [Bus]()
     var from = ""
     var to = ""
@@ -59,6 +60,8 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
         // Do any additional setup after loading the view.
         
         tableHeight.constant = CGFloat(Double(busList.count) * 114.0)
+        
+        user.balance = userBalance
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,6 +76,7 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
         bdvc?.price = price
         bdvc?.totalPrice = price
         bdvc?.travelDate = travelDate
+        bdvc?.userBalance = userBalance
     }
     
     @IBAction func clickSegment(_ sender: Any) {

@@ -135,7 +135,7 @@ class WalletViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let sbvc = segue.destination as? SearchBusViewController
-        sbvc?.user.balance = userBalance
+        sbvc?.userBalance = userBalance
         
         let bdvc = segue.destination as? BusDetailViewController
         bdvc?.userBalance = userBalance
