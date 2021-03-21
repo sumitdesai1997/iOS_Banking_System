@@ -66,7 +66,7 @@ class WalletViewController: UIViewController {
         homePage.isHidden = true
         bookingPage.isHidden = true
         
-        balance.text = "$\(user.balance)"
+        balance.text = "$\(String(format:"%.2f",user.balance))"
         
         print("wallet in: \(user.balance)")
     }
