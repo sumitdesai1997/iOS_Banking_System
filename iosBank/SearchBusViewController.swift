@@ -82,7 +82,6 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     var busList = [Bus]()
     var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
-    var userBalance = 70.0
     var price = 0.0
     var alertTitle = "Alert"
     var alertMessage = ""
@@ -100,10 +99,11 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         datePicker.preferredDatePickerStyle = .compact
         datePicker.datePickerMode = .date
         
-        user.balance = userBalance
         userName.text = String(user.balance)
         
         fillData()
+        
+        print("Search bus in: \(user.balance)")
     }
     
     func fillData(){
@@ -122,7 +122,6 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         srvc?.to = to
         srvc?.travelDate = datePicker.date
         srvc?.user = user
-        srvc?.userBalance = userBalance
         
         if(from != "" && to != ""){
             for (key, value) in priceList{
@@ -144,7 +143,7 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         srvc?.busList = busList
         
         let wvc = segue.destination as? WalletViewController
-        wvc?.userBalance = user.balance
+        wvc?.user = user
         wvc?.isFromSearchBus = true
     }
     

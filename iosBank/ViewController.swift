@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     
     var userList = [User]()
-    
+    var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

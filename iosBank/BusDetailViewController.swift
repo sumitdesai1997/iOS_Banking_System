@@ -26,7 +26,6 @@ class BusDetailViewController: UIViewController {
     @IBOutlet weak var addAmount: UIButton!
     
     var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
-    var userBalance = 0.0
     var name = ""
     var images = [String]()
     var information = ""
@@ -68,7 +67,7 @@ class BusDetailViewController: UIViewController {
         ac.isSelected = isAc
         sleeper.isSelected = isSleeper
         
-        user.balance = userBalance
+        print("Bus detail in: \(user.balance)")
     }
     
     @IBAction func changedNumber(_ sender: UIStepper) {
@@ -240,11 +239,11 @@ class BusDetailViewController: UIViewController {
         bcvc?.services = serviceDetails
         bcvc?.totalPayment = totalPrice
         bcvc?.travelDate = travelDate
-        bcvc?.userBalance = user.balance
+        bcvc?.user = user
         
         let wvc = segue.destination as? WalletViewController
         wvc?.isFromBusDetail = true
-        wvc?.userBalance = user.balance
+        wvc?.user = user
         wvc?.name = name
         wvc?.images = images
         wvc?.information = information
@@ -279,6 +278,7 @@ class BusDetailViewController: UIViewController {
         }
         else {
             openAlert(title: "Alert", message: "Your account don't have sufficent amount to book the ticket!", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
+            return
         }
     }
     

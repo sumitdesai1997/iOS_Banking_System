@@ -1008,8 +1008,8 @@
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confirm6" translatesAutoresizingMaskIntoConstraints="NO" id="U7S-Dr-BGA">
-                                <rect key="frame" x="333" y="58" width="61" height="73"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="giftcard" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="U7S-Dr-BGA">
+                                <rect key="frame" x="333" y="59.5" width="61" height="69.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="73" id="DFm-WH-fBA"/>
                                     <constraint firstAttribute="width" constant="61" id="vhB-QQ-qfk"/>
@@ -1455,7 +1455,7 @@
     <resources>
         <image name="bus.doubledecker" catalog="system" width="125" height="128"/>
         <image name="checkCB" width="20" height="20"/>
-        <image name="confirm6" width="998" height="994"/>
+        <image name="giftcard" catalog="system" width="128" height="88"/>
         <image name="logo3" width="200" height="132"/>
         <image name="phone.circle.fill" catalog="system" width="128" height="121"/>
         <image name="power" catalog="system" width="128" height="124"/>

@@ -19,7 +19,6 @@ class BookingConfirmationViewController: UIViewController {
     @IBOutlet weak var totalpaymentL: UILabel!
     
     var userName = ""
-    var userBalance = 0.0
     var fromCity = ""
     var toCity = ""
     var travelDate = Date()
@@ -27,10 +26,13 @@ class BookingConfirmationViewController: UIViewController {
     var numberOfSeats = ""
     var services = ""
     var totalPayment = 0.0
+    var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("Booking confirmation in: \(user.balance)")
+        print("Booking confirmation total payment: \(totalPayment)")
         // Do any additional setup after loading the view.
         usernameL.text = userName
         fromcityL.text = fromCity
@@ -40,11 +42,16 @@ class BookingConfirmationViewController: UIViewController {
         numberofseatsL.text = numberOfSeats
         servicesL.text = services
         totalpaymentL.text = String(totalPayment)
+        print("AFTER Booking confirmation in: \(user.balance)")
+        print("AFTER Booking confirmation total payment: \(totalPayment)")
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let sbvc = segue.destination as? SearchBusViewController
-        sbvc?.userBalance = userBalance - totalPayment
+        
+        print("on click total: \(totalPayment)")
+        print("on click: \(user.balance)")
+        sbvc?.user = user
     }
     @IBAction func clickGoToHomePage(_ sender: Any) {
         performSegue(withIdentifier: "GoToHomePage", sender: self)

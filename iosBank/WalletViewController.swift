@@ -25,7 +25,7 @@ class WalletViewController: UIViewController {
     @IBOutlet weak var homePage: UIButton!
     @IBOutlet weak var bookingPage: UIButton!
     
-    var userBalance = 0.0
+    var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
     var isFromBusDetail = false
     var isFromSearchBus = false
     
@@ -66,7 +66,9 @@ class WalletViewController: UIViewController {
         homePage.isHidden = true
         bookingPage.isHidden = true
         
-        balance.text = "$\(userBalance)"
+        balance.text = "$\(user.balance)"
+        
+        print("wallet in: \(user.balance)")
     }
 
     @IBAction func clickAddAmount(_ sender: Any) {
@@ -106,8 +108,8 @@ class WalletViewController: UIViewController {
                     openAlert(title: "Alert", message: "Please do not enter more than $1000.0", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
                     return
                 }
-                userBalance += Double(amount)!
-                balance.text = "$\(userBalance)"
+                user.balance += Double(amount)!
+                balance.text = "$\(user.balance)"
                 
                 ccTitle.isHidden = true
                 ccNumber.isHidden = true
@@ -135,10 +137,10 @@ class WalletViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let sbvc = segue.destination as? SearchBusViewController
-        sbvc?.userBalance = userBalance
+        sbvc?.user = user
         
         let bdvc = segue.destination as? BusDetailViewController
-        bdvc?.userBalance = userBalance
+        bdvc?.user = user
         bdvc?.name = name
         bdvc?.images = images
         bdvc?.information = information
