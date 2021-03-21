@@ -56,7 +56,7 @@ class BusDetailViewController: UIViewController {
         stepper.value = Double(numberOfSeats)
         tempPrice = price
         numberSeatPrice = price
-        ticketPrice.text = "$\(totalPrice)"
+        ticketPrice.text = "$\(String(format:"%.2f",totalPrice))"
         addAmount.isHidden = true
         // Do any additional setup after loading the view.
         
@@ -74,7 +74,7 @@ class BusDetailViewController: UIViewController {
         number.text = String(Int(sender.value))
         numberSeatPrice = price * Double(number.text!)!
         totalPrice = numberSeatPrice
-        ticketPrice.text = "$\(totalPrice)"
+        ticketPrice.text = "$\(String(format:"%.2f",totalPrice))"
         
         extraService = 0.0
         food.isSelected = false
@@ -88,14 +88,8 @@ class BusDetailViewController: UIViewController {
     @IBAction func clickFood(_ sender: Any) {
         if(food.isSelected){
             food.isSelected = false
-            //extraService -= (2.0 * Double(numberOfSeat))
-            //price -= extraService
-            //ticketPrice.text = "$\(price)"
         } else {
             food.isSelected = true
-            //extraService += (2.0 * Double(numberOfSeat))
-            //price += extraService
-            //ticketPrice.text = "$\(price)"
         }
         getExtraService()
     }
@@ -103,14 +97,8 @@ class BusDetailViewController: UIViewController {
     @IBAction func clickLiveTracking(_ sender: Any) {
         if(liveTracking.isSelected){
             liveTracking.isSelected = false
-            //extraService -= (0.25 * Double(numberOfSeat))
-            //price -= extraService
-            //ticketPrice.text = "$\(price)"
         } else {
             liveTracking.isSelected = true
-            //extraService += (0.25 * Double(numberOfSeat))
-            //price += extraService
-            //ticketPrice.text = "$\(price)"
         }
         getExtraService()
     }
@@ -118,14 +106,8 @@ class BusDetailViewController: UIViewController {
     @IBAction func clickNetflix(_ sender: Any) {
         if(netflix.isSelected){
             netflix.isSelected = false
-            //extraService -= (1.0 * Double(numberOfSeat))
-            //price -= extraService
-            //ticketPrice.text = "$\(price)"
         } else {
             netflix.isSelected = true
-            //extraService += (1.0 * Double(numberOfSeat))
-            //price += extraService
-            //ticketPrice.text = "$\(price)"
         }
         getExtraService()
     }
@@ -133,14 +115,8 @@ class BusDetailViewController: UIViewController {
     @IBAction func clickElectricPlug(_ sender: Any) {
         if(electricPlug.isSelected){
             electricPlug.isSelected = false
-            //extraService -= (0.50 * Double(numberOfSeat))
-            //price -= extraService
-            //ticketPrice.text = "$\(price)"
         } else {
             electricPlug.isSelected = true
-            //extraService += (0.50 * Double(numberOfSeat))
-            //price += extraService
-            //ticketPrice.text = "$\(price)"
         }
         getExtraService()
     }
@@ -148,14 +124,8 @@ class BusDetailViewController: UIViewController {
     @IBAction func clickAC(_ sender: Any) {
         if(ac.isSelected){
             ac.isSelected = false
-            //extraService -= (1.0 * Double(numberOfSeat))
-            //price -= extraService
-            //ticketPrice.text = "$\(price)"
         } else {
             ac.isSelected = true
-            //extraService += (1.0 * Double(numberOfSeat))
-            //price += extraService
-            //ticketPrice.text = "$\(price)"
         }
         getExtraService()
     }
@@ -163,14 +133,8 @@ class BusDetailViewController: UIViewController {
     @IBAction func clickSleeper(_ sender: Any) {
         if(sleeper.isSelected){
             sleeper.isSelected = false
-            //extraService -= (price * Double(numberOfSeat))
-            //price -= extraService
-            //ticketPrice.text = "$\(price)"
         } else {
             sleeper.isSelected = true
-            //extraService += (price * Double(numberOfSeat))
-            //price += extraService
-            //ticketPrice.text = "$\(price)"
         }
         getExtraService()
     }
@@ -201,7 +165,7 @@ class BusDetailViewController: UIViewController {
         }
         
         totalPrice += extraService
-        ticketPrice.text = "$\(totalPrice)"
+        ticketPrice.text = "$\(String(format:"%.2f",totalPrice))"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -286,5 +250,20 @@ class BusDetailViewController: UIViewController {
         performSegue(withIdentifier: "AddAmountToWallet", sender: self)
     }
     
+    var i = 0
+    @IBAction func clickRight(_ sender: Any) {
+        if ((i + 1) < images.count) {
+            busImages.image = UIImage(named: images[i+1])
+            i += 1
+        }
+        
+    }
+    
+    @IBAction func clickLeft(_ sender: Any) {
+        if i > 0 {
+            busImages.image = UIImage(named: images[i-1])
+            i -= 1
+        }
+    }
     
 }

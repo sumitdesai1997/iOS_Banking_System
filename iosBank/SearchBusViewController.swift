@@ -108,10 +108,25 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     func fillData(){
-        busList.append(Bus(busName: "Sumit Dhanadhan Travells", isExpress: true, isSleeper: true, hasAC: true, hasWifi: true, images: ["sumit1","sumit2","sumit3"], description: "One of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in IndiaOne of the top buses in India.", from: [], to: [], review: 10.0, multiplier: 1.25, price: 0.0))
-        busList.append(Bus(busName: "Mihin Vana Wow Wow Travells", isExpress: true, isSleeper: false, hasAC: false, hasWifi: false, images: ["mihin1","mihin2","mihin3"], description: "One of the top buses in Gujarat", from: [], to: [], review: 9.0, multiplier: 00.90, price: 0.0))
-        busList.append(Bus(busName: "Krishna Canada Travells", isExpress: false, isSleeper: false, hasAC: false, hasWifi: true, images: ["krishna1","krishna2","krishna3"], description: "One of the top buses in Canada", from: [], to: [], review: 9.2, multiplier: 1.10, price: 0.0))
-        busList.append(Bus(busName: "Tulsi Express Travells", isExpress: true, isSleeper: true, hasAC: true, hasWifi: false, images: ["tulsi1","tulsi2","tulsi3"], description: "One of the top buses in Ahmedabad", from: [], to: [], review: 8.5, multiplier: 1.0, price: 0.0))
+        busList.append(Bus(busName: "McCoy Express", isExpress: true, isSleeper: false,
+        hasAC: false, hasWifi: false, images: ["mc1","mc2","mc3"],
+         description: "One of the top buses in Toronto.The bus provides smooth journey in enitre Ontario.", from: ["Toronto","Mississauga","Brampton"], to: ["Surat"], review: 9.0, multiplier: 1.05, price: 0.0))
+        busList.append(Bus(busName: "Ontario Northland Express", isExpress: false,isSleeper: false,
+        hasAC: false, hasWifi: true,images: ["on1","on2","on3"],
+        description: "This bus operator provides buses with moderns service. This bus provides only express service along with Wifi, Netflix, Food and Live tracking.", from: ["Mississauga","Brampton","Hamilton"], to: ["KIM"], review: 7.9, multiplier: 0.98, price: 0.0))
+        busList.append(Bus(busName: "Great Canadain Travels", isExpress: false,isSleeper: false,
+        hasAC: false, hasWifi: false, images: ["gc1","gc2","gc3"],
+         description: "One of the oldest bus operator from the Canada. This bus will ease your travel from and to Ontario destination.", from: ["Mississauga","Brampton","Oshawa"], to: ["Bharuch"], review: 7.0, multiplier: 0.95, price: 0.0))
+        busList.append(Bus(busName: "Franklin Travels", isExpress: true, isSleeper: true,
+        hasAC: true, hasWifi: false, images: ["f1","f2","f3"],
+        description: "One of the High rated bus operator buses in Canada. This  Express Bus provides facilities like AC, Netflix, Wifi and many more.", from: ["Toronto","Oshawa","Hamilton"], to: ["Khambhat"], review: 9.6, multiplier: 1.25, price: 0.0))
+        busList.append(Bus(busName: "Coach Canada Travels", isExpress: true,isSleeper: true,
+        hasAC: true, hasWifi: true,images: ["cc1","cc2","cc3"],
+         description: "This bus operator is highly recommend for good services. This Express bus provide all the service that need during the travel from Wifi and AC to Netflix and Food.",
+        from: ["Mississauga","Kitchner","Toronto"], to: ["Valsad"], review: 9.2, multiplier: 1.20, price: 0.0))
+        busList.append(Bus(busName: "Pacific Western Travels", isExpress: true, isSleeper: false,
+        hasAC: true,hasWifi: true,images: ["pw1","pw2","pw3"],
+         description: "One of the highly reputed bus operator in Toronto since last 10 years. This bus provides many optional services from which user can select the service they need.", from: ["Kitchner","Oshawa"], to: ["Bharuch"], review: 8.0, multiplier: 0.90, price: 0.0))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
