@@ -100,7 +100,7 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         datePicker.preferredDatePickerStyle = .compact
         datePicker.datePickerMode = .date
         
-        userName.text = String(user.balance)
+        userName.text = "Hi \(user.name)"
         
         fillData()
         
