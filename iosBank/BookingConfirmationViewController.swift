@@ -31,8 +31,6 @@ class BookingConfirmationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("Booking confirmation in: \(user.balance)")
-        print("Booking confirmation total payment: \(totalPayment)")
         // Do any additional setup after loading the view.
         usernameL.text = userName
         fromcityL.text = fromCity
@@ -47,10 +45,14 @@ class BookingConfirmationViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("before segue on click total: \(totalPayment)")
+        print("before segue on click balance: \(user.balance)")
+        
         let sbvc = segue.destination as? SearchBusViewController
         
+        user.balance += totalPayment
         print("on click total: \(totalPayment)")
-        print("on click: \(user.balance)")
+        print("on click balance: \(user.balance)")
         sbvc?.user = user
     }
     @IBAction func clickGoToHomePage(_ sender: Any) {

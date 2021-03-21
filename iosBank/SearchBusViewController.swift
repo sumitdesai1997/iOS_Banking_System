@@ -83,6 +83,7 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
     var busList = [Bus]()
     var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
     var price = 0.0
+    var totalPayment = 0.0
     var alertTitle = "Alert"
     var alertMessage = ""
     override func viewDidLoad() {
@@ -143,7 +144,7 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         srvc?.busList = busList
         
         let wvc = segue.destination as? WalletViewController
-        wvc?.user = user
+        wvc?.user.balance = user.balance - totalPayment
         wvc?.isFromSearchBus = true
     }
     
