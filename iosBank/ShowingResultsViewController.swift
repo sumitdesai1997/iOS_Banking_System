@@ -40,7 +40,7 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var sortingSegment: UISegmentedControl!
     
-    var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
+    var user = User()
     var busList = [Bus]()
     var from = ""
     var to = ""

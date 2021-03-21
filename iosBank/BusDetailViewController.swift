@@ -25,7 +25,7 @@ class BusDetailViewController: UIViewController {
    
     @IBOutlet weak var addAmount: UIButton!
     
-    var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
+    var user = User()
     var name = ""
     var images = [String]()
     var information = ""

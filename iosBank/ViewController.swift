@@ -13,12 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     
     var userList = [User]()
-    var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        userList.append(User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0))
+        userList.append(User(name: "Sumit", email: "sumit123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,7 +45,7 @@ class ViewController: UIViewController {
                     return false
                 } else if !password.validatePass(){
                     alertTitle = "Alert"
-                    alertMessage = "Please enter valid password."
+                    alertMessage = "Please enter minimum 8 digit password with 1 digit and 1 character."
                     return false
                 }
                 

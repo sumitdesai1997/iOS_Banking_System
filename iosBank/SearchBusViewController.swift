@@ -81,7 +81,7 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
     "KH1" : "21"]
     
     var busList = [Bus]()
-    var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
+    var user = User()
     var price = 0.0
     var totalPayment = 0.0
     var alertTitle = "Alert"

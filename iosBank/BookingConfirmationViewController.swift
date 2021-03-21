@@ -26,7 +26,7 @@ class BookingConfirmationViewController: UIViewController {
     var numberOfSeats = ""
     var services = ""
     var totalPayment = 0.0
-    var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
+    var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class BookingConfirmationViewController: UIViewController {
         
         let sbvc = segue.destination as? SearchBusViewController
         
-        user.balance += totalPayment
+        //user.balance += totalPayment
         print("on click total: \(totalPayment)")
         print("on click balance: \(user.balance)")
         sbvc?.user = user

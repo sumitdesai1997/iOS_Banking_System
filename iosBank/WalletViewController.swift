@@ -25,7 +25,7 @@ class WalletViewController: UIViewController {
     @IBOutlet weak var homePage: UIButton!
     @IBOutlet weak var bookingPage: UIButton!
     
-    var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
+    var user = User()
     var isFromBusDetail = false
     var isFromSearchBus = false
     
@@ -165,5 +165,8 @@ class WalletViewController: UIViewController {
         performSegue(withIdentifier: "BookingPageToBusDetail", sender: self)
     }
     
+    @IBAction func clickBack(_ sender: Any) {
+        performSegue(withIdentifier: "BackToSearch", sender: self)
+    }
     
 }
