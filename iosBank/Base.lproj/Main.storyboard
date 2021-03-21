@@ -1388,6 +1388,7 @@
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                                 <state key="normal" title="&lt;Back"/>
                                                 <connections>
+                                                    <action selector="clickBack:" destination="KZw-4L-ye5" eventType="touchUpInside" id="asI-aA-qPj"/>
                                                     <segue destination="0Ir-p1-uvU" kind="presentation" identifier="BackToSearch" id="bEj-zJ-Hs2"/>
                                                 </connections>
                                             </button>
@@ -1498,8 +1499,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="mnf-iE-cOD"/>
-        <segue reference="HwM-tF-CDJ"/>
-        <segue reference="HLu-Cq-gcB"/>
+        <segue reference="Qa9-sl-eV4"/>
+        <segue reference="bEj-zJ-Hs2"/>
         <segue reference="pTp-tp-wvr"/>
     </inferredMetricsTieBreakers>
     <resources>
