@@ -12,6 +12,7 @@ class BusDetailViewController: UIViewController {
     @IBOutlet weak var busName: UILabel!
     @IBOutlet weak var busImages: UIImageView!
     @IBOutlet weak var busInformation: UILabel!
+    @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var number: UILabel!
     @IBOutlet weak var ticketPrice: UILabel!
     
@@ -21,8 +22,11 @@ class BusDetailViewController: UIViewController {
     @IBOutlet weak var electricPlug: UIButton!
     @IBOutlet weak var ac: UIButton!
     @IBOutlet weak var sleeper: UIButton!
+   
+    @IBOutlet weak var addAmount: UIButton!
     
     var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
+    var userBalance = 0.0
     var name = ""
     var images = [String]()
     var information = ""
@@ -32,7 +36,16 @@ class BusDetailViewController: UIViewController {
     var tempPrice = 0.0
     var extraService = 0.0
     var numberSeatPrice = 0.0
+    var totalPrice = 0.0
     var travelDate = Date()
+    
+    var isFood = false
+    var isLiveTracking = false
+    var isNetflix = false
+    var isElectricPlug = false
+    var isAc = false
+    var isSleeper = false
+    var numberOfSeats = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,18 +53,29 @@ class BusDetailViewController: UIViewController {
         busName.text = name
         busImages.image = UIImage(named: images[0])
         busInformation.text = information
-        number.text = String(1)
-        ticketPrice.text = "$\(price)"
+        number.text = String(numberOfSeats)
+        stepper.value = Double(numberOfSeats)
         tempPrice = price
         numberSeatPrice = price
+        ticketPrice.text = "$\(totalPrice)"
+        addAmount.isHidden = true
         // Do any additional setup after loading the view.
+        
+        food.isSelected = isFood
+        liveTracking.isSelected = isLiveTracking
+        netflix.isSelected = isNetflix
+        electricPlug.isSelected = isElectricPlug
+        ac.isSelected = isAc
+        sleeper.isSelected = isSleeper
+        
+        user.balance = userBalance
     }
     
     @IBAction func changedNumber(_ sender: UIStepper) {
         number.text = String(Int(sender.value))
-        price = tempPrice * Double(number.text!)!
-        numberSeatPrice = price
-        ticketPrice.text = "$\(price)"
+        numberSeatPrice = price * Double(number.text!)!
+        totalPrice = numberSeatPrice
+        ticketPrice.text = "$\(totalPrice)"
         
         extraService = 0.0
         food.isSelected = false
@@ -154,7 +178,7 @@ class BusDetailViewController: UIViewController {
     
     func getExtraService(){
         extraService = 0.0
-        price = numberSeatPrice
+        totalPrice = price * Double(number.text!)!
         
         let numberOfSeat = Int(number.text!)!
         
@@ -177,50 +201,75 @@ class BusDetailViewController: UIViewController {
             extraService += 3.0 * Double(numberOfSeat)
         }
         
-        price += extraService
-        ticketPrice.text = "$\(price)"
+        totalPrice += extraService
+        ticketPrice.text = "$\(totalPrice)"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let bcvc = segue.destination as! BookingConfirmationViewController
+        let bcvc = segue.destination as? BookingConfirmationViewController
         var serviceDetails = ""
         
         if(food.isSelected){
             serviceDetails += "Food,"
         }
         if(liveTracking.isSelected){
-            serviceDetails += "Live Tracking,"
+            serviceDetails += " Live Tracking,"
         }
         if(netflix.isSelected){
-            serviceDetails += "Netflix,"
+            serviceDetails += " Netflix,"
         }
         if(electricPlug.isSelected){
-            serviceDetails += "Electric plug,"
+            serviceDetails += " Electric plug,"
         }
         if(ac.isSelected){
-            serviceDetails += "AC,"
+            serviceDetails += " AC,"
         }
         if(sleeper.isSelected){
-            serviceDetails += "Sleeper"
+            serviceDetails += " Sleeper"
         }
         
-        bcvc.userName = user.name
-        bcvc.fromCity = from
-        bcvc.toCity = to
-        bcvc.busname = name
-        bcvc.numberOfSeats = number.text!
-        bcvc.services = serviceDetails
-        bcvc.totalPayment = String(price)
-        bcvc.travelDate = travelDate
+        if !serviceDetails.contains("Sleeper"){
+            serviceDetails = String(serviceDetails.dropLast())
+        }
+        
+        bcvc?.userName = user.name
+        bcvc?.fromCity = from
+        bcvc?.toCity = to
+        bcvc?.busname = name
+        bcvc?.numberOfSeats = number.text!
+        bcvc?.services = serviceDetails
+        bcvc?.totalPayment = totalPrice
+        bcvc?.travelDate = travelDate
+        bcvc?.userBalance = user.balance
+        
+        let wvc = segue.destination as? WalletViewController
+        wvc?.isFromBusDetail = true
+        wvc?.userBalance = user.balance
+        wvc?.name = name
+        wvc?.images = images
+        wvc?.information = information
+        wvc?.from = from
+        wvc?.to = to
+        wvc?.price = price
+        wvc?.totalPrice = totalPrice
+        wvc?.isFood = food.isSelected
+        wvc?.isLiveTracking = liveTracking.isSelected
+        wvc?.isNetflix = netflix.isSelected
+        wvc?.isElectricPlug = electricPlug.isSelected
+        wvc?.isAc = ac.isSelected
+        wvc?.isSleeper = sleeper.isSelected
+        wvc?.numberOfSeats = Int(number.text!)!
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        let finalPrice = price
+        let finalPrice = totalPrice
         
         if(finalPrice > user.balance){
-            print(user.balance)
+            addAmount.isHidden = false
             return false
         }
+        user.balance -= totalPrice
+        addAmount.isHidden = true
         return true
     }
     
@@ -232,5 +281,10 @@ class BusDetailViewController: UIViewController {
             openAlert(title: "Alert", message: "Your account don't have sufficent amount to book the ticket!", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
         }
     }
+    
+    @IBAction func clickAddAmount(_ sender: Any) {
+        performSegue(withIdentifier: "AddAmountToWallet", sender: self)
+    }
+    
     
 }

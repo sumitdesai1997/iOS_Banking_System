@@ -82,6 +82,7 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     var busList = [Bus]()
     var user = User(name: "test", email: "test123@gmail.com", password: "12345678q", question: "buzzo", balance: 70.0)
+    var userBalance = 70.0
     var price = 0.0
     var alertTitle = "Alert"
     var alertMessage = ""
@@ -99,7 +100,8 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         datePicker.preferredDatePickerStyle = .compact
         datePicker.datePickerMode = .date
         
-        userName.text = "Sumit"
+        user.balance = userBalance != 0.0 ? userBalance : 0.0
+        userName.text = String(user.balance)
         
         fillData()
     }
@@ -142,6 +144,7 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         
         let wvc = segue.destination as? WalletViewController
         wvc?.userBalance = user.balance
+        wvc?.isFromSearchBus = true
     }
     
     @IBAction func clickYourWallet(_ sender: Any) {

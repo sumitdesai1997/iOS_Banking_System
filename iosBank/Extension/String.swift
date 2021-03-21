@@ -31,7 +31,7 @@ extension String{
     }
     
     func validateCCnumber() -> Bool{
-        let ccNumberReg = "[0-9]{16}"
+        let ccNumberReg = "[0-9]{1}"
         return applyReg(regexStr: ccNumberReg)
     }
     

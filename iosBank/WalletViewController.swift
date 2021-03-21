@@ -22,8 +22,30 @@ class WalletViewController: UIViewController {
     @IBOutlet weak var ccAmount: UILabel!
     @IBOutlet weak var ccAmountTF: UITextField!
     @IBOutlet weak var ccAddToWallet: UIButton!
+    @IBOutlet weak var homePage: UIButton!
+    @IBOutlet weak var bookingPage: UIButton!
     
     var userBalance = 0.0
+    var isFromBusDetail = false
+    var isFromSearchBus = false
+    
+    var name = ""
+    var images = [String]()
+    var information = ""
+    var from = ""
+    var to = ""
+    var price = 0.0
+    var tempPrice = 0.0
+    var extraService = 0.0
+    var numberSeatPrice = 0.0
+    var totalPrice = 0.0
+    var isFood = false
+    var isLiveTracking = false
+    var isNetflix = false
+    var isElectricPlug = false
+    var isAc = false
+    var isSleeper = false
+    var numberOfSeats = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +63,8 @@ class WalletViewController: UIViewController {
         ccAmount.isHidden = true
         ccAmountTF.isHidden = true
         ccAddToWallet.isHidden = true
+        homePage.isHidden = true
+        bookingPage.isHidden = true
         
         balance.text = "$\(userBalance)"
     }
@@ -97,11 +121,46 @@ class WalletViewController: UIViewController {
                 ccAmount.isHidden = true
                 ccAmountTF.isHidden = true
                 ccAddToWallet.isHidden = true
-                
+                if isFromSearchBus{
+                    homePage.isHidden = false
+                }
+                if isFromBusDetail{
+                    bookingPage.isHidden = false
+                }
                 openAlert(title: "Information", message: "Your account has been credited with $\(amount)", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
                 return
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let sbvc = segue.destination as? SearchBusViewController
+        sbvc?.user.balance = userBalance
+        
+        let bdvc = segue.destination as? BusDetailViewController
+        bdvc?.userBalance = userBalance
+        bdvc?.name = name
+        bdvc?.images = images
+        bdvc?.information = information
+        bdvc?.from = from
+        bdvc?.to = to
+        bdvc?.price = price
+        bdvc?.totalPrice = totalPrice
+        bdvc?.isFood = isFood
+        bdvc?.isLiveTracking = isLiveTracking
+        bdvc?.isNetflix = isNetflix
+        bdvc?.isElectricPlug = isElectricPlug
+        bdvc?.isAc = isAc
+        bdvc?.isSleeper = isSleeper
+        bdvc?.numberOfSeats = numberOfSeats
+    }
+    
+    @IBAction func clickHomePage(_ sender: Any) {
+        performSegue(withIdentifier: "HomePageToSearchBus", sender: self)
+    }
+    
+    @IBAction func clickBookingPage(_ sender: Any) {
+        performSegue(withIdentifier: "BookingPageToBusDetail", sender: self)
     }
     
     

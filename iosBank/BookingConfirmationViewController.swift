@@ -9,7 +9,6 @@ import UIKit
 
 class BookingConfirmationViewController: UIViewController {
     
-    
     @IBOutlet weak var usernameL: UILabel!
     @IBOutlet weak var fromcityL: UILabel!
     @IBOutlet weak var tocityL: UILabel!
@@ -20,13 +19,15 @@ class BookingConfirmationViewController: UIViewController {
     @IBOutlet weak var totalpaymentL: UILabel!
     
     var userName = ""
+    var userBalance = 0.0
     var fromCity = ""
     var toCity = ""
     var travelDate = Date()
     var busname = ""
     var numberOfSeats = ""
     var services = ""
-    var totalPayment = ""
+    var totalPayment = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +39,14 @@ class BookingConfirmationViewController: UIViewController {
         busnameL.text = busname
         numberofseatsL.text = numberOfSeats
         servicesL.text = services
-        totalpaymentL.text = totalPayment
+        totalpaymentL.text = String(totalPayment)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let sbvc = segue.destination as? SearchBusViewController
+        sbvc?.userBalance = userBalance - totalPayment
+    }
+    @IBAction func clickGoToHomePage(_ sender: Any) {
+        performSegue(withIdentifier: "GoToHomePage", sender: self)
+    }
 }

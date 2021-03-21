@@ -62,16 +62,17 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let bdvc = segue.destination as! BusDetailViewController
+        let bdvc = segue.destination as? BusDetailViewController
         
-        bdvc.user = user
-        bdvc.name = name
-        bdvc.images = images
-        bdvc.information = information
-        bdvc.from = from
-        bdvc.to = to
-        bdvc.price = price
-        bdvc.travelDate = travelDate
+        bdvc?.user = user
+        bdvc?.name = name
+        bdvc?.images = images
+        bdvc?.information = information
+        bdvc?.from = from
+        bdvc?.to = to
+        bdvc?.price = price
+        bdvc?.totalPrice = price
+        bdvc?.travelDate = travelDate
     }
     
     @IBAction func clickSegment(_ sender: Any) {
