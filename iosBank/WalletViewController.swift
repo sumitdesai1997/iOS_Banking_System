@@ -34,6 +34,7 @@ class WalletViewController: UIViewController {
     var information = ""
     var from = ""
     var to = ""
+    var travelDate = Date()
     var price = 0.0
     var tempPrice = 0.0
     var extraService = 0.0

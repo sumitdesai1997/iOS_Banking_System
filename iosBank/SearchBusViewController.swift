@@ -191,4 +191,10 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         }
         
     }
+    
+    @IBAction func clickSignOut(_ sender: Any) {
+        let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        present(sbvc, animated: true)
+    }
+    
 }

@@ -19,7 +19,7 @@ class SignUpViewController: UIViewController {
     var userList = [User]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        passwordTF.isSecureTextEntry = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -75,4 +75,10 @@ class SignUpViewController: UIViewController {
             openAlert(title: alertTitle, message: alertMessage, alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
         }
     }
+    
+    @IBAction func clickiSignIn(_ sender: Any) {
+        let suvc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        present(suvc, animated: true)
+    }
+    
 }

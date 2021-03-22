@@ -70,6 +70,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func clickCreateAccount(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        present(vc, animated: true)
+    }
     
 }
 

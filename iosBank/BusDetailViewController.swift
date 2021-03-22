@@ -222,6 +222,7 @@ class BusDetailViewController: UIViewController {
         wvc?.isAc = ac.isSelected
         wvc?.isSleeper = sleeper.isSelected
         wvc?.numberOfSeats = Int(number.text!)!
+        wvc?.travelDate = travelDate
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

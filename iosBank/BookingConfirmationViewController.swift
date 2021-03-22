@@ -22,6 +22,7 @@ class BookingConfirmationViewController: UIViewController {
     var fromCity = ""
     var toCity = ""
     var travelDate = Date()
+    
     var busname = ""
     var numberOfSeats = ""
     var services = ""
@@ -35,17 +36,25 @@ class BookingConfirmationViewController: UIViewController {
         usernameL.text = userName
         fromcityL.text = fromCity
         tocityL.text = toCity
-        traveldateL.text = ""
+        traveldateL.text = getDateinString(of: travelDate)
         busnameL.text = busname
         numberofseatsL.text = numberOfSeats
         servicesL.text = services
         totalpaymentL.text = String(totalPayment)
+        
         print("AFTER Booking confirmation balance: \(user.balance)")
         print("AFTER Booking confirmation total payment: \(totalPayment)")
         user.balance = user.balance - totalPayment
         print("AFTER subtraction: \(user.balance)")
     }
 
+    func getDateinString(of date: Date)-> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        let todaysDate = dateFormatter.string(from: date)
+        return todaysDate
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("before segue on click total: \(totalPayment)")
         print("before segue on click balance: \(user.balance)")
