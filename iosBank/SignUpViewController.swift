@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var cPasswordTF: UITextField!
     @IBOutlet weak var questionTF: UITextField!
     
+    var userList = [User]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,7 +68,6 @@ class SignUpViewController: UIViewController {
         return false
     }
     
-    var userList = [User]()
     @IBAction func clickSignUp(_ sender: Any) {
         if shouldPerformSegue(withIdentifier: "SignUpToSignIn", sender: self){
             performSegue(withIdentifier: "SignUpToSignIn", sender: self)

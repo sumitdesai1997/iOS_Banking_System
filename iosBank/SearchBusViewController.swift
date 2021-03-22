@@ -159,7 +159,8 @@ class SearchBusViewController: UIViewController, UIPickerViewDataSource, UIPicke
         srvc?.busList = busList
         
         let wvc = segue.destination as? WalletViewController
-        wvc?.user.balance = user.balance - totalPayment
+        user.balance = user.balance - totalPayment
+        wvc?.user = user
         wvc?.isFromSearchBus = true
     }
     
