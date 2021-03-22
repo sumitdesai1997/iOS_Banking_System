@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buslogo1" translatesAutoresizingMaskIntoConstraints="NO" id="5VB-cR-vJp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buslogo5" translatesAutoresizingMaskIntoConstraints="NO" id="5VB-cR-vJp">
                                 <rect key="frame" x="71.5" y="326.5" width="271" height="243"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <color key="tintColor" name="AccentColor"/>
@@ -41,7 +41,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="buslogo1" width="271" height="243"/>
+        <image name="buslogo5" width="305" height="270"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

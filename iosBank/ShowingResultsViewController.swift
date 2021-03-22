@@ -75,6 +75,9 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
         bdvc?.price = price
         bdvc?.totalPrice = price
         bdvc?.travelDate = travelDate
+        
+        let sbvc = segue.destination as? SearchBusViewController
+        sbvc?.user = user
     }
     
     @IBAction func clickSegment(_ sender: Any) {
@@ -89,4 +92,6 @@ class ShowingResultsViewController: UIViewController,UITableViewDataSource, UITa
             busTable.reloadData()
         }
     }
+    
+    
 }

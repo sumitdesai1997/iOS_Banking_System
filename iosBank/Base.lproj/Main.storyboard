@@ -23,7 +23,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QpL-e1-hqM">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="743"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buslogo2" translatesAutoresizingMaskIntoConstraints="NO" id="vGd-St-yK6">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buslogo5" translatesAutoresizingMaskIntoConstraints="NO" id="vGd-St-yK6">
                                                 <rect key="frame" x="87" y="30" width="240" height="128"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="dAv-XC-5xO"/>
@@ -89,7 +89,7 @@
                                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                                         <state key="normal" title="Create account"/>
                                                         <connections>
-                                                            <segue destination="r3f-RE-1Fb" kind="showDetail" identifier="CreateAccountToSignUp" id="9TX-tu-esm"/>
+                                                            <segue destination="r3f-RE-1Fb" kind="showDetail" identifier="CreateAccountToSignUp" id="yE9-ee-5Sv"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -167,7 +167,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGQ-0O-Soj">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="820.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buslogo2" translatesAutoresizingMaskIntoConstraints="NO" id="MlH-Y3-K4b">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buslogo5" translatesAutoresizingMaskIntoConstraints="NO" id="MlH-Y3-K4b">
                                                 <rect key="frame" x="87" y="30" width="240" height="128"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="240" id="ZUn-aE-xx2"/>
@@ -276,7 +276,7 @@
                                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                                         <state key="normal" title="Sign in"/>
                                                         <connections>
-                                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="SignInToSignIn" id="pTp-tp-wvr"/>
+                                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="SignInToSignIn" id="FUF-DQ-HV2"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -404,7 +404,7 @@
                                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="SignOutToSignIn" id="SZm-Mw-200"/>
+                                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="SignOutToSignIn" id="HdY-rS-r4g"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1501,11 +1501,11 @@
         <segue reference="6oy-u2-gfJ"/>
         <segue reference="HwM-tF-CDJ"/>
         <segue reference="55X-DN-K7Q"/>
-        <segue reference="SZm-Mw-200"/>
+        <segue reference="FUF-DQ-HV2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bus.doubledecker" catalog="system" width="125" height="128"/>
-        <image name="buslogo2" width="194" height="200"/>
+        <image name="buslogo5" width="305" height="270"/>
         <image name="checkCB" width="20" height="20"/>
         <image name="chevron.left.square.fill" catalog="system" width="128" height="114"/>
         <image name="chevron.right.circle.fill" catalog="system" width="128" height="121"/>
