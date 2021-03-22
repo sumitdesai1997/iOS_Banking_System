@@ -88,8 +88,10 @@ class BusDetailViewController: UIViewController {
     @IBAction func clickFood(_ sender: Any) {
         if(food.isSelected){
             food.isSelected = false
+            showToast(message: "Food service removed!")
         } else {
             food.isSelected = true
+            showToast(message: "Food service added!")
         }
         getExtraService()
     }
@@ -97,8 +99,10 @@ class BusDetailViewController: UIViewController {
     @IBAction func clickLiveTracking(_ sender: Any) {
         if(liveTracking.isSelected){
             liveTracking.isSelected = false
+            showToast(message: "Live tracking removed!")
         } else {
             liveTracking.isSelected = true
+            showToast(message: "Live tracking added!")
         }
         getExtraService()
     }
@@ -106,8 +110,10 @@ class BusDetailViewController: UIViewController {
     @IBAction func clickNetflix(_ sender: Any) {
         if(netflix.isSelected){
             netflix.isSelected = false
+            showToast(message: "Netflix service removed!")
         } else {
             netflix.isSelected = true
+            showToast(message: "Netflix service added!")
         }
         getExtraService()
     }
@@ -115,8 +121,10 @@ class BusDetailViewController: UIViewController {
     @IBAction func clickElectricPlug(_ sender: Any) {
         if(electricPlug.isSelected){
             electricPlug.isSelected = false
+            showToast(message: "Electric plug service removed!")
         } else {
             electricPlug.isSelected = true
+            showToast(message: "Electric plug service added!")
         }
         getExtraService()
     }
@@ -124,8 +132,10 @@ class BusDetailViewController: UIViewController {
     @IBAction func clickAC(_ sender: Any) {
         if(ac.isSelected){
             ac.isSelected = false
+            showToast(message: "AC service removed!")
         } else {
             ac.isSelected = true
+            showToast(message: "AC service added!")
         }
         getExtraService()
     }
@@ -133,8 +143,10 @@ class BusDetailViewController: UIViewController {
     @IBAction func clickSleeper(_ sender: Any) {
         if(sleeper.isSelected){
             sleeper.isSelected = false
+            showToast(message: "Sleeper service removed!")
         } else {
             sleeper.isSelected = true
+            showToast(message: "Sleeper service added!")
         }
         getExtraService()
     }
@@ -268,6 +280,20 @@ class BusDetailViewController: UIViewController {
             busImages.image = UIImage(named: images[i-1])
             i -= 1
         }
+    }
+    
+    func showToast(message: String){
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.width/2-110, y: self.view.frame.height-100, width: 250, height: 40))
+        toastLabel.textAlignment = .center
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        toastLabel.textColor = UIColor.white
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds = true
+        toastLabel.text = message
+        self.view.addSubview(toastLabel)
+        
+        UIView.animate(withDuration: 4.0, delay: 0.0, options: .curveEaseInOut, animations: {toastLabel.alpha = 0.0}) { (isCompleted) in toastLabel.removeFromSuperview()}
     }
     
 }

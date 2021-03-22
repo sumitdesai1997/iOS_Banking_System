@@ -17,6 +17,7 @@ class BookingConfirmationViewController: UIViewController {
     @IBOutlet weak var numberofseatsL: UILabel!
     @IBOutlet weak var servicesL: UILabel!
     @IBOutlet weak var totalpaymentL: UILabel!
+    @IBOutlet weak var bookingNoL: UILabel!
     
     var userName = ""
     var fromCity = ""
@@ -42,12 +43,22 @@ class BookingConfirmationViewController: UIViewController {
         servicesL.text = services
         totalpaymentL.text = String(totalPayment)
         
+        bookingNoL.text = randomNumber()
+        
         print("AFTER Booking confirmation balance: \(user.balance)")
         print("AFTER Booking confirmation total payment: \(totalPayment)")
         user.balance = user.balance - totalPayment
         print("AFTER subtraction: \(user.balance)")
     }
 
+    func randomNumber() -> String{
+        var number = ""
+        repeat {
+            number = String(format:"%06d", arc4random_uniform(1000000) )
+        } while number.count < 6
+        return number
+    }
+    
     func getDateinString(of date: Date)-> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
@@ -69,4 +80,10 @@ class BookingConfirmationViewController: UIViewController {
     @IBAction func clickGoToHomePage(_ sender: Any) {
         performSegue(withIdentifier: "GoToHomePage", sender: self)
     }
+    
+    @IBAction func clickSignOut(_ sender: Any) {
+        let suvc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        present(suvc, animated: true)
+    }
+    
 }
