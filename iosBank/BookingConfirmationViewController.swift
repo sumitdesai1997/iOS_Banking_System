@@ -40,8 +40,10 @@ class BookingConfirmationViewController: UIViewController {
         numberofseatsL.text = numberOfSeats
         servicesL.text = services
         totalpaymentL.text = String(totalPayment)
-        print("AFTER Booking confirmation in: \(user.balance)")
+        print("AFTER Booking confirmation balance: \(user.balance)")
         print("AFTER Booking confirmation total payment: \(totalPayment)")
+        user.balance = user.balance - totalPayment
+        print("AFTER subtraction: \(user.balance)")
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

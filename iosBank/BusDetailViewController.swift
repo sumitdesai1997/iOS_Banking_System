@@ -231,7 +231,6 @@ class BusDetailViewController: UIViewController {
             addAmount.isHidden = false
             return false
         }
-        user.balance -= totalPrice
         addAmount.isHidden = true
         return true
     }
