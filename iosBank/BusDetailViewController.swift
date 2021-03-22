@@ -195,6 +195,10 @@ class BusDetailViewController: UIViewController {
             serviceDetails = String(serviceDetails.dropLast())
         }
         
+        if serviceDetails == "" {
+            serviceDetails = "No extra service choosen"
+        }
+        
         bcvc?.userName = user.name
         bcvc?.fromCity = from
         bcvc?.toCity = to
