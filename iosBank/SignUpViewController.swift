@@ -51,7 +51,7 @@ class SignUpViewController: UIViewController {
                     return false
                 } else if cPassword != password {
                     alertTitle = "Alert"
-                    alertMessage = "Password and Confirm Password should be match."
+                    alertMessage = "Password and Confirm Password should be the exact match."
                     return false
                 } else if !question.validName(){
                     alertTitle = "Alert"

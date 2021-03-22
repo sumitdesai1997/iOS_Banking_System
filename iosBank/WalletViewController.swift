@@ -16,7 +16,7 @@ class WalletViewController: UIViewController {
     @IBOutlet weak var ccName: UILabel!
     @IBOutlet weak var ccNameTF: UITextField!
     @IBOutlet weak var ccExpiry: UILabel!
-    @IBOutlet weak var ccExpiryTF: UITextField!
+    @IBOutlet weak var ccExpirydDP: UIDatePicker!
     @IBOutlet weak var ccCVV: UILabel!
     @IBOutlet weak var ccCVVTF: UITextField!
     @IBOutlet weak var ccAmount: UILabel!
@@ -58,7 +58,7 @@ class WalletViewController: UIViewController {
         ccName.isHidden = true
         ccNameTF.isHidden = true
         ccExpiry.isHidden = true
-        ccExpiryTF.isHidden = true
+        ccExpirydDP.isHidden = true
         ccCVV.isHidden = true
         ccCVVTF.isHidden = true
         ccAmount.isHidden = true
@@ -68,6 +68,9 @@ class WalletViewController: UIViewController {
         bookingPage.isHidden = true
         
         balance.text = "$\(String(format:"%.2f",user.balance))"
+        
+        ccExpirydDP.preferredDatePickerStyle = .compact
+        ccExpirydDP.datePickerMode = .date
         
         print("wallet in: \(user.balance)")
     }
@@ -79,7 +82,7 @@ class WalletViewController: UIViewController {
         ccName.isHidden = false
         ccNameTF.isHidden = false
         ccExpiry.isHidden = false
-        ccExpiryTF.isHidden = false
+        ccExpirydDP.isHidden = false
         ccCVV.isHidden = false
         ccCVVTF.isHidden = false
         ccAmount.isHidden = false
@@ -88,8 +91,8 @@ class WalletViewController: UIViewController {
     }
     
     @IBAction func clickAddToWallet(_ sender: Any) {
-        if let number = ccNumberTF.text, let name = ccNameTF.text, let expiry = ccExpiryTF.text, let cvv = ccCVVTF.text, let amount = ccAmountTF.text {
-            if(number == "" || name == "" || expiry == "" || cvv == "" || amount == ""){
+        if let number = ccNumberTF.text, let name = ccNameTF.text, let cvv = ccCVVTF.text, let amount = ccAmountTF.text {
+            if(number == "" || name == "" || cvv == "" || amount == ""){
                 openAlert(title: "Alert", message: "Please enter value for all fields.", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
                 return
             } else {
@@ -118,7 +121,7 @@ class WalletViewController: UIViewController {
                 ccName.isHidden = true
                 ccNameTF.isHidden = true
                 ccExpiry.isHidden = true
-                ccExpiryTF.isHidden = true
+                ccExpirydDP.isHidden = true
                 ccCVV.isHidden = true
                 ccCVVTF.isHidden = true
                 ccAmount.isHidden = true
