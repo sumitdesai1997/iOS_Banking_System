@@ -13,10 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Thread.sleep(forTimeInterval: 5.0)
         // Override point for customization after application launch.
         return true
     }
-
+	
+//    private func splashScreen(){
+//        let lvc = UIStoryboard.init(name: "LaunchScreen", bundle: nil)
+//        let rootVC = lvc.instantiateViewController(withIdentifier: "splashController")
+//        self.window?.rootViewController = rootVC
+//    }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
